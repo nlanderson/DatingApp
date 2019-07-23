@@ -48,12 +48,13 @@ namespace DatingApp.API.Controllers
         [HttpPost("login")]
         public async Task<IActionResult> Login(UserForLoginDto userForLoginDto)
         {
-            var userFromRepo = await _repo.Login(
-                userForLoginDto.UserName.ToLower(), userForLoginDto.Password);
+            
+            throw new Exception("Computer says no");
+
+            var userFromRepo = await _repo.Login(userForLoginDto.UserName.ToLower(), userForLoginDto.Password);
 
             // make sure the passed in user not null.
-            if (userFromRepo == null) 
-                return Unauthorized();
+            if (userFromRepo == null) return Unauthorized();
 
             // create the claims for the user attempting login.
             var claims = new[]
@@ -87,9 +88,6 @@ namespace DatingApp.API.Controllers
             return Ok(new {
                 token = tokenHandler.WriteToken(token)
             });
-
         }
-
-
     }
 }
