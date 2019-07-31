@@ -13,7 +13,7 @@ namespace DatingApp.API.Models
 
         public byte[] PasswordSalt { get; set; }
 
-        public string Gender {get;set;}
+        public string Gender { get; set; }
 
         public DateTime DateOfBirth { get; set; }
 
@@ -33,8 +33,7 @@ namespace DatingApp.API.Models
 
         public string Country { get; set; }
 
-        public ICollection<Photo> Photos {get;set;}
-
+        public ICollection<Photo> Photos { get; set; }
 
     }
 }
